@@ -15,4 +15,6 @@ hs_err_pid*
 /leitor/target
 
 *.iml
-*.idea
+.idea/*
+.idea/codeStyleSettings.xml
+.idea/encodings.xml
