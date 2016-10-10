@@ -1,0 +1,17 @@
+// inicializa o MongoDB
+./mongod
+
+// Acessar Mongo DB
+./mongo
+
+// Monstra bases criados no Mongo DB
+show dbs
+
+// Usar/Criar base arquivo-processamento
+use arquivo-processamento
+
+// Criar Collection ("tabela") para armezar os arquivos
+db.createCollection("arquivos")
+
+// Consultar arquivos salvos
+db.arquivos.find()
