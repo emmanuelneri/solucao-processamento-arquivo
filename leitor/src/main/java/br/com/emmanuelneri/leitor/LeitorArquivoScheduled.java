@@ -33,7 +33,7 @@ public class LeitorArquivoScheduled {
         final Collection<File> arquivos = FileUtils.getFilesInDirectory(new File(properties.getDiretorioNovo()));
 
         if(!arquivos.isEmpty()) {
-            try (MongoClient mongoClient = new MongoClient("localhost", 27017)) {
+            try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
                 final MongoDatabase db = mongoClient.getDatabase("arquivo-processamento");
                 final MongoCollection<Document> arquivosCollection = db.getCollection("arquivos");
