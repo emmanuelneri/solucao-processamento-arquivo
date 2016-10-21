@@ -8,6 +8,7 @@ import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,15 +37,36 @@ public class ArquivoController {
         }
     }
 
+    @RequestMapping(path = "/arquivo/{objectId}", method = RequestMethod.GET)
+    public String findByProcessIdentifier(@PathVariable("objectId") String objectId) {
+        try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
+
+            final MongoCollection<Document> collection = getDocumentMongoCollection(mongoClient);
+
+            return collection.find(new Document("_id", new ObjectId(objectId))).first().getString(ATRIBUTO_XML);
+        }
+    }
+
     @RequestMapping(path = "/arquivos/ids", method = RequestMethod.GET)
-    public List<ObjectId> findIds() {
+    public List<String> findIds() {
+        try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
+
+            final MongoCollection<Document> collection = getDocumentMongoCollection(mongoClient);
+
+            final List<String> ids = new ArrayList<>();
+            collection.find().map(document -> document.getObjectId("_id")).forEach((Block<? super ObjectId>) objectId -> ids.add(objectId.toHexString()));
+            return ids;
+        }
+    }
+
+    @RequestMapping(path = "/arquivos/objectIds", method = RequestMethod.GET)
+    public List<ObjectId> findObjectIds() {
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
             final MongoCollection<Document> collection = getDocumentMongoCollection(mongoClient);
 
             final List<ObjectId> xmls = new ArrayList<>();
             collection.find().map(document -> document.getObjectId("_id")).forEach((Block<? super ObjectId>) xmls::add);
-
             return xmls;
         }
     }
