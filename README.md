@@ -12,7 +12,7 @@
 - Criar base collection no MongoDB
   - db.createCollection("arquivos")
 - Criar base no Postgres
-  - create table nfes
+  - create table nfe
 
 #Execução
 mvn spring-boot:run
