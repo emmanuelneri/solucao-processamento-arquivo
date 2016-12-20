@@ -1,0 +1,10 @@
+// inicializa o ActiveMQ
+sh activemq console
+
+//ActiveMQ
+http://localhost:8161/admin
+usuário padrão: admin
+senha padrão: admin
+
+// Criar Queues no ActiveMQ
+Queues name: arquivo.queue

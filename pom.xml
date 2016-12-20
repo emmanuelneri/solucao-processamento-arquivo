@@ -57,6 +57,7 @@
     <modules>
         <module>leitor</module>
         <module>disponibilizador</module>
+        <module>processador</module>
     </modules>
 
 </project>
