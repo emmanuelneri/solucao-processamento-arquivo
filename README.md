@@ -7,6 +7,7 @@
 - Spring Boot 1.4.0
 - MongoDB 3.3.0
 - Postgres 9.4
+- ActiveMQ 5.12.0
 
 #Configuração
 - Criar base collection no MongoDB
