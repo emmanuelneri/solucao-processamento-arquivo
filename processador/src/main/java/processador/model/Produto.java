@@ -44,9 +44,6 @@ public class Produto implements Model<Long> {
     @JoinColumn(name = "FORNECEDOR_ID")
     private Empresa fornecedor;
 
-    @Column(name = "produto_furukawa")
-    private boolean produtoFurukawa;
-
     protected Produto() {
     }
 
@@ -55,7 +52,6 @@ public class Produto implements Model<Long> {
         this.descricao = descricao;
         this.fornecedor = fornecedor;
         this.unidade = unidade;
-        this.produtoFurukawa = false;
     }
 
     public Long getId() {
@@ -78,11 +74,4 @@ public class Produto implements Model<Long> {
         return unidade;
     }
 
-    public boolean isProdutoFurukawa() {
-        return produtoFurukawa;
-    }
-
-    public void setProdutoFurukawa(boolean produtoFurukawa) {
-        this.produtoFurukawa = produtoFurukawa;
-    }
 }
