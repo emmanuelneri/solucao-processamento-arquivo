@@ -26,6 +26,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>${mongodb-driver.version}</version>

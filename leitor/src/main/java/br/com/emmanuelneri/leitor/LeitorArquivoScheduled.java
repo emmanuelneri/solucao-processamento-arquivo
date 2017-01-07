@@ -26,6 +26,9 @@ public class LeitorArquivoScheduled {
     @Autowired
     private LeitorProperties properties;
 
+    @Autowired
+    private ArquivoSender arquivoSender;
+
     @Scheduled(fixedRate = 1000000)
     public void importer() throws IOException {
         LOGGER.info("----------- Iniciado Importador de Arquivos ----------");
@@ -40,8 +43,11 @@ public class LeitorArquivoScheduled {
 
                 for (File file : arquivos) {
                     try {
-                        inserirArquivo(arquivosCollection, file);
+                        final String xml = Files.toString(file, Charsets.UTF_8);
+
+                        inserirArquivo(arquivosCollection, xml);
                         moverArquivoInserido(file);
+                        enviarArquivoParaFilaDeProcessamento(xml);
                     } catch (Exception ex) {
                         LOGGER.error("Erro durante inserção do arquivo", ex);
                     }
@@ -52,12 +58,15 @@ public class LeitorArquivoScheduled {
         }
     }
 
-    private void inserirArquivo(MongoCollection<Document> arquivosCollection, File file) throws IOException {
-        final String xml = Files.toString(file, Charsets.UTF_8);
-        arquivosCollection.insertOne(new Document("xml", xml));
+    private void inserirArquivo(MongoCollection<Document> arquivosCollection, String file) throws IOException {
+        arquivosCollection.insertOne(new Document("xml", file));
     }
 
     private void moverArquivoInserido(File file) throws IOException {
         FileUtils.move(file, properties.getDiretorioBkp() + file.getName());
+    }
+
+    private void enviarArquivoParaFilaDeProcessamento(String file) {
+        arquivoSender.send(file);
     }
 }

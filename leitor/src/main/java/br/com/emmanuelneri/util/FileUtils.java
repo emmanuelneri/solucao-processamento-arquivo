@@ -6,7 +6,7 @@ import java.util.Collection;
 
 public final class FileUtils {
 
-    private static final String XML = "XML";
+    private static final String XML = "xml";
 
     private FileUtils() {}
 
