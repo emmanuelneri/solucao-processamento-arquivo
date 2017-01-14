@@ -12,6 +12,9 @@
 #Configuração
 - Criar base collection no MongoDB
   - db.createCollection("arquivos")
+- Criar Queue no ActiveMQ
+ - http://localhost:8161/admin/queues.jsp
+ - Criar Queue com o nome "arquivo.queue"
 - Criar base no Postgres
   - create database processamento-arquivo
 
