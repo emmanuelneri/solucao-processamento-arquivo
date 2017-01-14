@@ -45,8 +45,8 @@ public class NotaFiscalService extends AbstractService{
         } catch (BusinessException bex) {
             LOGGER.warn("Nota Fiscal já existente", bex);
         } catch (Exception ex) {
+            reenviarArquivoParaFila(arquivoNotaFiscal);
             LOGGER.error("Erro processar notaFisca", ex);
-            arquivoSender.send(arquivoNotaFiscal);
         }
     }
 
@@ -87,6 +87,10 @@ public class NotaFiscalService extends AbstractService{
                 .setParameter("numeroNf", numeroNf)
                 .setParameter("idEmpresaEmitente", emitente.getId())
                 .getResultList().stream().findFirst().orElse(null);
+    }
+
+    private void reenviarArquivoParaFila(String arquivo) {
+        arquivoSender.send(arquivo);
     }
 
 }
