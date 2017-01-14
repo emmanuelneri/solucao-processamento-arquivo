@@ -1,6 +1,9 @@
 package processador.model;
 
 import processador.util.Model;
+import processador.xml.NfeICMSTotXml;
+import processador.xml.NfeIdentificacaoXml;
+import processador.xml.NfeProdutoXml;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,6 +23,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -27,7 +31,7 @@ import java.util.List;
         uniqueConstraints = @UniqueConstraint(columnNames = {"numero_nf", "emitente_id"}, name = "nota_fiscal_uk"),
         indexes = {@Index(columnList = "NUMERO_NF", name = "nfe_numero_nf_idx")})
 @NamedQueries(value = {
-        @NamedQuery(name = "Nfe.findByEmitenteENumero", query = "select nfe from NotaFiscal nfe join nfe.emitente emit join fetch nfe.itens where nfe.numeroNf = :numeroNf and emit.id = :emitenteId")
+        @NamedQuery(name = "Nfe.findByEmitenteENumero", query = "select nfe from NotaFiscal nfe join fetch nfe.emitente emit join fetch nfe.destinatario des join fetch nfe.itens where nfe.numeroNf = :numeroNf and emit.id = :idEmpresaEmitente")
 })
 public class NotaFiscal implements Model<Long> {
 
@@ -62,8 +66,8 @@ public class NotaFiscal implements Model<Long> {
 
     @NotNull
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "NFE_ID")
-    private List<ItemNotaFiscal> itens;
+    @JoinColumn(name = "NOTA_FISCAL_ID")
+    private List<ItemNotaFiscal> itens = new ArrayList<>();
 
     @NotNull
     private BigDecimal valor;
@@ -75,84 +79,26 @@ public class NotaFiscal implements Model<Long> {
     @Column(name = "VALOR_TOTAL")
     private BigDecimal valorTotal;
 
+    protected NotaFiscal() {}
+
+    public NotaFiscal(NfeIdentificacaoXml identificacao, NfeICMSTotXml total, Empresa destinatario, Empresa emitente) {
+        this.numeroNf = identificacao.getnNF();
+        this.destinatario = destinatario;
+        this.emitente = emitente ;
+        this.dataEmissao = identificacao.getdEmi();
+        this.dataSaida = identificacao.getdSaiEnt();
+        this.valor = total.getvProd();
+        this.valorDesconto = total.getvDesc() ;
+        this.valorTotal = total.getvNF();
+    }
+
+    public void addItem(NfeProdutoXml produtoXml, Produto produto) {
+        itens.add(new ItemNotaFiscal(produtoXml.getxPed(), produtoXml.getnItemPed(),
+                produtoXml.getqTrib(), produto, produtoXml.getvUnCom(), produtoXml.getvProd()));
+    }
+
+    @Override
     public Long getId() {
         return id;
     }
-
-    public BigDecimal getValorTotal() {
-        return valorTotal;
-    }
-
-    public BigDecimal getValor() {
-        return valor;
-    }
-
-    public BigDecimal getValorDesconto() {
-        return valorDesconto;
-    }
-
-    public Empresa getDestinatario() {
-        return destinatario;
-    }
-
-    public Empresa getEmitente() {
-        return emitente;
-    }
-
-    public List<ItemNotaFiscal> getItens() {
-        return itens;
-    }
-
-    public String getNumeroNf() {
-        return numeroNf;
-    }
-
-    public LocalDate getDataEmissao() {
-        return dataEmissao;
-    }
-
-    public LocalDate getDataSaida() {
-        return dataSaida;
-    }
-
-    public void setEmitente(Empresa emitente) {
-        this.emitente = emitente;
-    }
-
-    public void setDestinatario(Empresa destinatario) {
-        this.destinatario = destinatario;
-    }
-
-    public void setItens(List<ItemNotaFiscal> itens) {
-        this.itens = itens;
-    }
-
-    public void setValor(BigDecimal valor) {
-        this.valor = valor;
-    }
-
-    public void setValorDesconto(BigDecimal valorDesconto) {
-        this.valorDesconto = valorDesconto;
-    }
-
-    public void setValorTotal(BigDecimal valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public void setNumeroNf(String numeroNf) {
-        this.numeroNf = numeroNf;
-    }
-
-    public void setDataEmissao(LocalDate dataEmissao) {
-        this.dataEmissao = dataEmissao;
-    }
-
-    public void setDataSaida(LocalDate dataSaida) {
-        this.dataSaida = dataSaida;
-    }
-
-    public LocalDate getDataUpload() {
-        return dataUpload;
-    }
-
 }

@@ -2,8 +2,8 @@ package processador.model;
 
 import processador.util.Model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -21,8 +21,8 @@ import javax.validation.constraints.NotNull;
         uniqueConstraints = @UniqueConstraint(columnNames = {"CODIGO", "FORNECEDOR_ID"}, name = "produto_uk"),
         indexes = @Index(columnList = "CODIGO"))
 @NamedQueries({
-        @NamedQuery(name = "Produto.findByCodigoEFornecedor",
-                query = "Select p from Produto p where p.codigo = :codigo and p.fornecedor = :fornecedor")
+        @NamedQuery(name = "Produto.findByCodigosEFornecedor",
+                query = "Select p from Produto p where p.fornecedor = :fornecedor and p.codigo in (:codigos) ")
 })
 public class Produto implements Model<Long> {
 
@@ -40,7 +40,7 @@ public class Produto implements Model<Long> {
     private String unidade;
 
     @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "FORNECEDOR_ID")
     private Empresa fornecedor;
 

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.jms.annotation.EnableJms;
 import processador.ArquivoConsumer;
 import processador.model.NotaFiscal;
@@ -17,7 +18,7 @@ import javax.jms.Queue;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = {ArquivoConsumer.class})
-@EntityScan(basePackageClasses = NotaFiscal.class)
+@EntityScan(basePackageClasses = {NotaFiscal.class, Jsr310JpaConverters.class})
 @EnableJms
 public class ProcessadorConfig {
 
