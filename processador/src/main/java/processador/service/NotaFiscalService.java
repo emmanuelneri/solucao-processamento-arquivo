@@ -5,7 +5,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import processador.ArquivoSender;
 import processador.exception.BusinessException;
+import processador.exception.FileException;
 import processador.model.Empresa;
 import processador.model.NotaFiscal;
 import processador.model.Produto;
@@ -30,15 +32,21 @@ public class NotaFiscalService extends AbstractService{
     @Autowired
     private ProdutoService produtoService;
 
+    @Autowired
+    private ArquivoSender arquivoSender;
+
     @Transactional
     public void processar(String arquivoNotaFiscal) {
         try {
             final NfeProcXml xmlNotaFiscal = XmlRead.read(arquivoNotaFiscal);
             salvar(xmlNotaFiscal);
+        } catch (FileException bex) {
+            LOGGER.error("Erro no parser do arquivo", bex);
         } catch (BusinessException bex) {
             LOGGER.warn("Nota Fiscal já existente", bex);
         } catch (Exception ex) {
             LOGGER.error("Erro processar notaFisca", ex);
+            arquivoSender.send(arquivoNotaFiscal);
         }
     }
 

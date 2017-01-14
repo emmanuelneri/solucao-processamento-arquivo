@@ -1,5 +1,8 @@
 package processador.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import processador.exception.FileException;
 import processador.xml.NfeProcXml;
 
 import javax.xml.bind.JAXBContext;
@@ -11,11 +14,17 @@ public final class XmlRead {
 
     private XmlRead() {}
 
-    public static NfeProcXml read(String xml) throws JAXBException {
+    public static NfeProcXml read(String xml) throws JAXBException, FileException {
         // TODO melhorar leitura de NF para suportar mais tipos de notas
-        final JAXBContext jaxbContext = JAXBContext.newInstance(NfeProcXml.class);
-        final Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        return (NfeProcXml) jaxbUnmarshaller.unmarshal(new ByteArrayInputStream(xml.getBytes()));
+        try {
+            final JAXBContext jaxbContext = JAXBContext.newInstance(NfeProcXml.class);
+            final Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            return (NfeProcXml) jaxbUnmarshaller.unmarshal(new ByteArrayInputStream(xml.getBytes()));
+        } catch (Exception ex) {
+            final Logger LOGGER = LoggerFactory.getLogger(XmlRead.class);
+            LOGGER.error("Erro no parser do arquivo", ex);
+            throw new FileException("Arquivo inválido");
+        }
     }
 
 }
