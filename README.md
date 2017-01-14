@@ -13,10 +13,20 @@
 - Criar base collection no MongoDB
   - db.createCollection("arquivos")
 - Criar base no Postgres
-  - create database processamento-nfe
+  - create database processamento-arquivo
 
 #Execução
-mvn spring-boot:run
+
+Infraestrutura:
+ - iniciar Postgres
+ - iniciar MongoDB
+ - iniciar ActiveMQ
+
+Aplicação: 
+ - leitor: mvn spring-boot:run
+ - processador: mvn spring-boot:run
+ - disponibilizador: mvn spring-boot:run
+
 
 
 ** em desenvolvimento
