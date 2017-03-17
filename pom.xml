@@ -12,6 +12,7 @@
     <properties>
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
         <mongodb-driver.version>3.4.2</mongodb-driver.version>
+        <postgresql.version>9.4.1212</postgresql.version>
         <commons-io.version>2.5</commons-io.version>
         <slf4j.version>1.7.24</slf4j.version>
         <guava.version>21.0</guava.version>

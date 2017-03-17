@@ -1,5 +1,6 @@
 package br.com.emmanuelneri;
 
+import br.com.emmanuelneri.app.notafiscal.repository.NotaFiscalRepository;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -9,9 +10,10 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jms.annotation.EnableJms;
 import br.com.emmanuelneri.app.ArquivoConsumer;
-import br.com.emmanuelneri.app.model.NotaFiscal;
+import br.com.emmanuelneri.app.notafiscal.model.NotaFiscal;
 
 import javax.jms.Queue;
 
@@ -19,6 +21,7 @@ import javax.jms.Queue;
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = {ArquivoConsumer.class})
 @EntityScan(basePackageClasses = {NotaFiscal.class, Jsr310JpaConverters.class})
+@EnableJpaRepositories(basePackageClasses = {NotaFiscalRepository.class})
 @EnableJms
 public class ProcessadorAppConfig {
 

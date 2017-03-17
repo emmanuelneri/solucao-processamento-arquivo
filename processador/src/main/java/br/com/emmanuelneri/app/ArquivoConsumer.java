@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
-import br.com.emmanuelneri.app.service.NotaFiscalService;
+import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
 
 @Component
 public class ArquivoConsumer {

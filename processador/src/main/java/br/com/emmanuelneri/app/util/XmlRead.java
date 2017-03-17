@@ -3,7 +3,7 @@ package br.com.emmanuelneri.app.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import br.com.emmanuelneri.app.exception.FileException;
-import br.com.emmanuelneri.app.xml.NfeProcXml;
+import br.com.emmanuelneri.app.notafiscal.xml.NfeProcXml;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
