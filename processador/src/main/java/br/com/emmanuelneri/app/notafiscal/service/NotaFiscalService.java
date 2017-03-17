@@ -52,7 +52,7 @@ public class NotaFiscalService {
         }
     }
 
-    private void salvar(NfeProcXml xml) throws BusinessException {
+    private void salvar(NfeProcXml xml) {
         final NfeInfoXml info = xml.getInfo();
         final NfeIdentificacaoXml identificacao = info.getIdentificacao();
         final NfeICMSTotXml total = info.getIcmsTotXml();

@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="2.00">
+    <NFe>
+        <infNFe Id="NFe41140100111511000695550010000175751003257792" versao="2.00">
+            <ide>
+                <cUF>41</cUF>
+                <cNF>02385971</cNF>
+                <natOp>Venda de Mercadorias</natOp>
+                <indPag>1</indPag>
+                <mod>55</mod>
+                <serie>1</serie>
+                <nNF>98256</nNF>
+                <dEmi>2017-01-06</dEmi>
+                <dSaiEnt>2017-01-06</dSaiEnt>
+                <tpNF>1</tpNF>
+                <cMunFG>4104808</cMunFG>
+                <tpImp>1</tpImp>
+                <tpEmis>1</tpEmis>
+                <cDV>2</cDV>
+                <tpAmb>1</tpAmb>
+                <finNFe>1</finNFe>
+                <procEmi>0</procEmi>
+                <verProc>2.2.8</verProc>
+            </ide>
+            <emit>
+                <CNPJ>46287611000163</CNPJ>
+                <xNome>FORNECEDOR 1 LTDA</xNome>
+                <xFant>FORNECEDOR 1</xFant>
+                <enderEmit>
+                    <xLgr>AVENIDA GOIAIS</xLgr>
+                    <nro>7000</nro>
+                    <xBairro>Centro</xBairro>
+                    <cMun>4104808</cMun>
+                    <xMun>CIANORTE</xMun>
+                    <UF>PR</UF>
+                    <CEP>87200000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                    <fone>4490099293</fone>
+                </enderEmit>
+                <IE>931323959307</IE>
+                <CRT>3</CRT>
+            </emit>
+            <dest>
+                <CNPJ>33179841000167</CNPJ>
+                <xNome>CLIENTE 2</xNome>
+                <enderDest>
+                    <xLgr>AVENIDA SOUZA NAVES</xLgr>
+                    <nro>1024</nro>
+                    <xBairro>ZONA DOIS</xBairro>
+                    <cMun>4105508</cMun>
+                    <xMun>CIANORTE</xMun>
+                    <UF>PR</UF>
+                    <CEP>87200000</CEP>
+                    <cPais>1058</cPais>
+                    <xPais>BRASIL</xPais>
+                </enderDest>
+                <IE>9014728900</IE>
+            </dest>
+            <det nItem="1">
+                <prod>
+                    <cProd>232132</cProd>
+                    <cEAN />
+                    <xProd>PRODUTO 1</xProd>
+                    <NCM>85447010</NCM>
+                    <CFOP>5405</CFOP>
+                    <uCom>PC</uCom>
+                    <qCom>40.0000</qCom>
+                    <vUnCom>70.560000</vUnCom>
+                    <vProd>2822.40</vProd>
+                    <cEANTrib />
+                    <uTrib>PC</uTrib>
+                    <qTrib>40.0000</qTrib>
+                    <vUnTrib>70.560000</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>57</xPed>
+                    <nItemPed>1</nItemPed>
+                </prod>
+                <imposto>
+                    <ICMS>
+                        <ICMS60>
+                            <orig>0</orig>
+                            <CST>60</CST>
+                            <vBCSTRet>0.00</vBCSTRet>
+                            <vICMSSTRet>0.00</vICMSSTRet>
+                        </ICMS60>
+                    </ICMS>
+                    <IPI>
+                        <cEnq>999</cEnq>
+                        <IPINT>
+                            <CST>51</CST>
+                        </IPINT>
+                    </IPI>
+                    <II>
+                        <vBC>0.00</vBC>
+                        <vDespAdu>0.00</vDespAdu>
+                        <vII>0.00</vII>
+                        <vIOF>0.00</vIOF>
+                    </II>
+                    <PIS>
+                        <PISAliq>
+                            <CST>01</CST>
+                            <vBC>2822.40</vBC>
+                            <pPIS>1.65</pPIS>
+                            <vPIS>46.57</vPIS>
+                        </PISAliq>
+                    </PIS>
+                    <COFINS>
+                        <COFINSAliq>
+                            <CST>01</CST>
+                            <vBC>2822.40</vBC>
+                            <pCOFINS>7.60</pCOFINS>
+                            <vCOFINS>214.50</vCOFINS>
+                        </COFINSAliq>
+                    </COFINS>
+                </imposto>
+                <infAdProd>ICMS de 12% conf. Art 14 Inciso II Alinea W do RICMS/PrDECRETO 6910/12 SECAO XXVIII *  - Base Calculo Subst. Trib. R$0.00 ICMS Retido R$0.00</infAdProd>
+            </det>
+            <det nItem="2">
+                <prod>
+                    <cProd>2324342</cProd>
+                    <cEAN />
+                    <xProd>PRODUTO 2</xProd>
+                    <NCM>85447010</NCM>
+                    <CFOP>5405</CFOP>
+                    <uCom>PC</uCom>
+                    <qCom>8.0000</qCom>
+                    <vUnCom>988.530000</vUnCom>
+                    <vProd>7908.24</vProd>
+                    <cEANTrib />
+                    <uTrib>PC</uTrib>
+                    <qTrib>8.0000</qTrib>
+                    <vUnTrib>988.530000</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>57</xPed>
+                    <nItemPed>2</nItemPed>
+                </prod>
+                <imposto>
+                    <ICMS>
+                        <ICMS60>
+                            <orig>0</orig>
+                            <CST>60</CST>
+                            <vBCSTRet>0.00</vBCSTRet>
+                            <vICMSSTRet>0.00</vICMSSTRet>
+                        </ICMS60>
+                    </ICMS>
+                    <IPI>
+                        <cEnq>999</cEnq>
+                        <IPINT>
+                            <CST>51</CST>
+                        </IPINT>
+                    </IPI>
+                    <II>
+                        <vBC>0.00</vBC>
+                        <vDespAdu>0.00</vDespAdu>
+                        <vII>0.00</vII>
+                        <vIOF>0.00</vIOF>
+                    </II>
+                    <PIS>
+                        <PISAliq>
+                            <CST>01</CST>
+                            <vBC>7908.24</vBC>
+                            <pPIS>1.65</pPIS>
+                            <vPIS>130.49</vPIS>
+                        </PISAliq>
+                    </PIS>
+                    <COFINS>
+                        <COFINSAliq>
+                            <CST>01</CST>
+                            <vBC>7908.24</vBC>
+                            <pCOFINS>7.60</pCOFINS>
+                            <vCOFINS>601.03</vCOFINS>
+                        </COFINSAliq>
+                    </COFINS>
+                </imposto>
+                <infAdProd>ICMS de 12% conf. Art 14 Inciso II Alinea W do RICMS/PrDECRETO 6910/12 SECAO XXVIII *  - Base Calculo Subst. Trib. R$0.00 ICMS Retido R$0.00</infAdProd>
+            </det>
+            <det nItem="3">
+                <prod>
+                    <cProd>93829382</cProd>
+                    <cEAN />
+                    <xProd>PRODUTO 3</xProd>
+                    <NCM>58063200</NCM>
+                    <CFOP>5102</CFOP>
+                    <uCom>PC</uCom>
+                    <qCom>15.0000</qCom>
+                    <vUnCom>7.250000</vUnCom>
+                    <vProd>108.75</vProd>
+                    <cEANTrib />
+                    <uTrib>PC</uTrib>
+                    <qTrib>15.0000</qTrib>
+                    <vUnTrib>7.250000</vUnTrib>
+                    <indTot>1</indTot>
+                    <xPed>57</xPed>
+                    <nItemPed>3</nItemPed>
+                </prod>
+                <imposto>
+                    <ICMS>
+                        <ICMS20>
+                            <orig>2</orig>
+                            <CST>20</CST>
+                            <modBC>3</modBC>
+                            <pRedBC>33.33</pRedBC>
+                            <vBC>72.50</vBC>
+                            <pICMS>18.00</pICMS>
+                            <vICMS>13.05</vICMS>
+                        </ICMS20>
+                    </ICMS>
+                    <IPI>
+                        <cEnq>999</cEnq>
+                        <IPINT>
+                            <CST>51</CST>
+                        </IPINT>
+                    </IPI>
+                    <II>
+                        <vBC>0.00</vBC>
+                        <vDespAdu>0.00</vDespAdu>
+                        <vII>0.00</vII>
+                        <vIOF>0.00</vIOF>
+                    </II>
+                    <PIS>
+                        <PISAliq>
+                            <CST>01</CST>
+                            <vBC>108.75</vBC>
+                            <pPIS>1.65</pPIS>
+                            <vPIS>1.79</vPIS>
+                        </PISAliq>
+                    </PIS>
+                    <COFINS>
+                        <COFINSAliq>
+                            <CST>01</CST>
+                            <vBC>108.75</vBC>
+                            <pCOFINS>7.60</pCOFINS>
+                            <vCOFINS>8.27</vCOFINS>
+                        </COFINSAliq>
+                    </COFINS>
+                </imposto>
+                <infAdProd>ICMS Diferido em 33,33% conf. Dec. 1980/07 - Art. 96 do Reg. ICMS/PR</infAdProd>
+            </det>
+            <total>
+                <ICMSTot>
+                    <vBC>72.50</vBC>
+                    <vICMS>13.05</vICMS>
+                    <vBCST>0.00</vBCST>
+                    <vST>0.00</vST>
+                    <vProd>10839.39</vProd>
+                    <vFrete>0.00</vFrete>
+                    <vSeg>0.00</vSeg>
+                    <vDesc>0.00</vDesc>
+                    <vII>0.00</vII>
+                    <vIPI>0.00</vIPI>
+                    <vPIS>178.85</vPIS>
+                    <vCOFINS>823.80</vCOFINS>
+                    <vOutro>0.00</vOutro>
+                    <vNF>10839.39</vNF>
+                </ICMSTot>
+            </total>
+            <transp>
+                <modFrete>1</modFrete>
+                <transporta>
+                    <CNPJ>84964840000164</CNPJ>
+                    <xNome>36144771000108 LTDA</xNome>
+                    <IE>3213413123</IE>
+                    <xEnder>R MARIO GEALH, 893</xEnder>
+                    <xMun>CURITIBA</xMun>
+                    <UF>PR</UF>
+                </transporta>
+                <vol>
+                    <qVol>5</qVol>
+                    <esp>Volumes</esp>
+                    <pesoL>15.000</pesoL>
+                    <pesoB>15.000</pesoB>
+                </vol>
+            </transp>
+            <cobr>
+                <fat>
+                    <nFat>17575</nFat>
+                    <vOrig>10839.39</vOrig>
+                    <vLiq>10839.39</vLiq>
+                </fat>
+                <dup>
+                    <nDup>17575-A</nDup>
+                    <dVenc>2014-02-03</dVenc>
+                    <vDup>3613.13</vDup>
+                </dup>
+                <dup>
+                    <nDup>17575-B</nDup>
+                    <dVenc>2014-03-03</dVenc>
+                    <vDup>3613.13</vDup>
+                </dup>
+                <dup>
+                    <nDup>17575-C</nDup>
+                    <dVenc>2014-03-31</dVenc>
+                    <vDup>3613.13</vDup>
+                </dup>
+            </cobr>
+            <infAdic>
+                <infAdFisco>Val Aprox Tributos R$4132.61 (38.13%) Fonte: IBPT. ICMS de 12% conf. Art 14 Inciso II Alinea W do RICMS/PrDECRETO 6910/12 SECAO XXVIIIICMS Diferido em 33,33% conf. Dec. 1980/07 - Art. 96 do Reg. ICMS/PR</infAdFisco>
+                <infCpl>PROJETO PTIPEDIDO CRM 17238 8952/A - 3613.13 - 03/02/2014; 17575/B - 3613.13 - 03/03/2014; 17575/C - 3613.13 - 31/03/2014;</infCpl>
+            </infAdic>
+        </infNFe>
+    </NFe>
+</nfeProc>

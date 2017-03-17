@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <nfeProc xmlns="http://www.portalfiscal.inf.br/nfe" versao="2.00">
     <NFe>
-        <infNFe Id="NFe41140100111511000695550010000175751003257792" versao="2.00">
+        <infNFe Id="NFe41120120315216300895550010000175751003257792" versao="2.00">
             <ide>
                 <cUF>41</cUF>
                 <cNF>00325779</cNF>
@@ -24,8 +24,8 @@
             </ide>
             <emit>
                 <CNPJ>46287611000163</CNPJ>
-                <xNome>CLIENTE 1 LTDA</xNome>
-                <xFant>CLIENTE</xFant>
+                <xNome>FORNECEDOR 1 LTDA</xNome>
+                <xFant>FORNECEDOR</xFant>
                 <enderEmit>
                     <xLgr>AVENIDA GOIAIS</xLgr>
                     <nro>7000</nro>
@@ -43,7 +43,7 @@
             </emit>
             <dest>
                 <CNPJ>94987184000179</CNPJ>
-                <xNome>EMPRESA 1</xNome>
+                <xNome>CLIENTE 1</xNome>
                 <enderDest>
                     <xLgr>AVENIDA SOUZA NAVES</xLgr>
                     <nro>1024</nro>
@@ -261,7 +261,7 @@
                     <CNPJ>84964840000164</CNPJ>
                     <xNome>36144771000108 LTDA</xNome>
                     <IE>3213413123</IE>
-                    <xEnder>R MARIO GEALH, 3232</xEnder>
+                    <xEnder>R MARIO GEALH, 893</xEnder>
                     <xMun>CURITIBA</xMun>
                     <UF>PR</UF>
                 </transporta>
@@ -296,40 +296,8 @@
             </cobr>
             <infAdic>
                 <infAdFisco>Val Aprox Tributos R$4132.61 (38.13%) Fonte: IBPT. ICMS de 12% conf. Art 14 Inciso II Alinea W do RICMS/PrDECRETO 6910/12 SECAO XXVIIIICMS Diferido em 33,33% conf. Dec. 1980/07 - Art. 96 do Reg. ICMS/PR</infAdFisco>
-                <infCpl>PROJETO PTIPEDIDO CRM 17238 17575/A - 3613.13 - 03/02/2014; 17575/B - 3613.13 - 03/03/2014; 17575/C - 3613.13 - 31/03/2014;</infCpl>
+                <infCpl>PROJETO PTIPEDIDO CRM 17238 8952/A - 3613.13 - 03/02/2014; 17575/B - 3613.13 - 03/03/2014; 17575/C - 3613.13 - 31/03/2014;</infCpl>
             </infAdic>
         </infNFe>
-        <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
-            <SignedInfo>
-                <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
-                <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
-                <Reference URI="#NFe41140100111511000695550010000175751003257792">
-                    <Transforms>
-                        <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
-                        <Transform Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
-                    </Transforms>
-                    <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-                    <DigestValue>FJZmezLbqOIfxiOCxaRzd7a7vaQ=</DigestValue>
-                </Reference>
-            </SignedInfo>
-            <SignatureValue>rHeViE4wPBKiQWE3fIkv+tRvQf1WXuqn3MF5XpuAlVw3cUA0q4IMJdWKTBbBoToSKRuoYhOqsCDqBKSHf92ly3oErHKJjAL37GU7K/WcewTI6Ptnv5yRZyUpyE6cikevXiWv3osv0eODMwO3hAZt51pVBTRAmyEQ436ba7nolZ4gO7kNxb0LMahDBdIjXhn2PoJPIe8Ih0+snVUbLLOpWdrJcVrDypsLGxfCGwUSXmPsc6+/X+euUnDaAxPhzIjgpkVxK/17Fpmr1dAnAc7lde7NVXoJef4qrgBS4N7HD5L+RchIWUGtG2MmN9w5+F3bUiEe28MOBH8/fb9LPNomSA==</SignatureValue>
-            <KeyInfo>
-                <X509Data>
-                    <X509Certificate>MIIH4jCCBcqgAwIBAgIIQC2Z/eluNFkwDQYJKoZIhvcNAQELBQAwTDELMAkGA1UEBhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwxKDAmBgNVBAMTH1NFUkFTQSBDZXJ0aWZpY2Fkb3JhIERpZ2l0YWwgdjIwHhcNMTMwMjA4MTcwOTAwWhcNMTQwMjA4MTcwOTAwWjCCAQAxCzAJBgNVBAYTAkJSMRMwEQYDVQQKEwpJQ1AtQnJhc2lsMRQwEgYDVQQLEwsoRU0gQlJBTkNPKTEYMBYGA1UECxMPMDAwMDAxMDAzODU5MTgyMRQwEgYDVQQLEwsoRU0gQlJBTkNPKTEUMBIGA1UECxMLKEVNIEJSQU5DTykxFDASBgNVBAsTCyhFTSBCUkFOQ08pMRQwEgYDVQQLEwsoRU0gQlJBTkNPKTEUMBIGA1UECxMLKEVNIEJSQU5DTykxPjA8BgNVBAMTNURFTFRBIENBQkxFIFRFTEVJTkZPUk1BVElDQSBDT00gRSBSRVAgQ09NRVJDSUFJUyBMVERBMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArNhlKKS9y4HkFEZBtDiPxHOuNHoQfevLH3kNe5LzGv2xG/fiHXnzmi6y7aDNcPmi85DjkHP5nyHZcFgdmZ8+vpRR3SijyGehJKpVEs9MShpPHxnhxA/vbbkQbO2iClNszWSQH2zZqIESVxQC9ASNb17wet97YjZ1k9nkn3OHvK/gNNy4Dghv3zDtkrg50lFyCy9UBSrXI9Rx9rHU7gI5z+mH2Awhb7GW+QQU4rewGyGOTi6ff3XAoOxAm/m8zz16FKulLmLqgJ1Xz5ihbQZ8rUkFoxDIoF2UHT0PHF7dE1YEwd1oZBVcpUctBoSvhauBRoe16jVO1huvTNelLwk5YQIDAQABo4IDEDCCAwwwgZcGCCsGAQUFBwEBBIGKMIGHMEcGCCsGAQUFBzAChjtodHRwOi8vd3d3LmNlcnRpZmljYWRvZGlnaXRhbC5jb20uYnIvY2FkZWlhcy9zZXJhc2FjZHYyLnA3YjA8BggrBgEFBQcwAYYwaHR0cDovL29jc3AuY2VydGlmaWNhZG9kaWdpdGFsLmNvbS5ici9zZXJhc2FjZHYyMB8GA1UdIwQYMBaAFJrggxDXJpvputqCsoHOORrTh3CGMHEGA1UdIARqMGgwZgYGYEwBAgEGMFwwWgYIKwYBBQUHAgEWTmh0dHA6Ly9wdWJsaWNhY2FvLmNlcnRpZmljYWRvZGlnaXRhbC5jb20uYnIvcmVwb3NpdG9yaW8vZHBjL2RlY2xhcmFjYW8tc2NkLnBkZjCB8AYDVR0fBIHoMIHlMEmgR6BFhkNodHRwOi8vd3d3LmNlcnRpZmljYWRvZGlnaXRhbC5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL3NlcmFzYWNkdjIuY3JsMEOgQaA/hj1odHRwOi8vbGNyLmNlcnRpZmljYWRvcy5jb20uYnIvcmVwb3NpdG9yaW8vbGNyL3NlcmFzYWNkdjIuY3JsMFOgUaBPhk1odHRwOi8vcmVwb3NpdG9yaW8uaWNwYnJhc2lsLmdvdi5ici9sY3IvU2VyYXNhL3JlcG9zaXRvcmlvL2xjci9zZXJhc2FjZHYyLmNybDAOBgNVHQ8BAf8EBAMCBeAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMIG5BgNVHREEgbEwga6BFUFVR0BERUxUQUNBQkxFLkNPTS5CUqA+BgVgTAEDBKA1EzMxMDA2MTk1NDIyMDEyMjE0MDUzMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDCgIQYFYEwBAwKgGBMWUkVJTkFMRE8gQVVHVVNUTyBQQVZBT6AZBgVgTAEDA6AQEw4wMDExMTUxMTAwMDE4MKAXBgVgTAEDB6AOEwwwMDAwMDAwMDAwMDAwDQYJKoZIhvcNAQELBQADggIBAF4SwimC8Vh1Sdv+yYR5SS1HaiLqs27CNgwnDotYQkT0DzKe4MuDG80iWShNVtI+lkAYk0H5Y/jT70wPcuHeOd1+y5vseU9vxkzrcWoRFZrnIUsWWuPLyWvq+I5sUP+Q3PNeYlRsdPbdf057HLKXwIk673QkXtLsN4Q4RkCDGORv4cRRvTIkGFJHWHxlE6Cw5lzk7wHJgs5/0W5BmuIpeVW/Fzu2QdILyhxrGjQaA7zKuv66OknzVNvUct/MIrWjyWoGF0n2lBtZYFfC3YIMgRustJNAPHZWhdvv5bkA46XtKJY2HXpIlCtkX9znfh3on9PdEj92VntKc2nRVXXwVTTyXMXS1dpZEouPcpQ0LNnxWtesc3cx19nd0B71VjCdYE231UZxoU4gzb36RtxgjqEhC7WH8yq8HaCgHLKsImv0nWla+1UmgsAgg0GLovcGO65nMi2cpvTE6t+IU34z5O1rA1cgHAkMljhwliKv7LfUDAIY2T30YcGXLpo5Sh2ztSNTZlHjOhk4MYz2W0atry9iJYawuTqrqMOXDOhS8cwJWKjDuJOpsKvvu6YLuRdGkXcFbivzU1ASYuEhixWEfqGNhbQCanZBBdNvpoWCCLIgaRuh5GOKde7qqWRC235O3lYcuthI5lwlbEZNWbA3BrCMrxz8udokoe0n+lb54WI4</X509Certificate>
-                </X509Data>
-            </KeyInfo>
-        </Signature>
     </NFe>
-    <protNFe versao="2.00">
-        <infProt>
-            <tpAmb>1</tpAmb>
-            <verAplic>PR-v2_8_1</verAplic>
-            <chNFe>41140100111511000695550010000175751003257792</chNFe>
-            <dhRecbto>2014-01-06T19:59:54</dhRecbto>
-            <nProt>141140001767429</nProt>
-            <digVal>FJZmezLbqOIfxiOCxaRzd7a7vaQ=</digVal>
-            <cStat>100</cStat>
-            <xMotivo>Autorizado o uso da NF-e</xMotivo>
-        </infProt>
-    </protNFe>
 </nfeProc>
