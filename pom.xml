@@ -10,34 +10,38 @@
     <packaging>pom</packaging>
 
     <properties>
+        <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
+        <mongodb-driver.version>3.4.2</mongodb-driver.version>
+        <commons-io.version>2.5</commons-io.version>
+        <slf4j.version>1.7.24</slf4j.version>
+        <guava.version>21.0</guava.version>
+        <junit.version>4.12</junit.version>
+        <lombok.version>1.16.10</lombok.version>
         <java.version>1.8</java.version>
-        <spring-boot.version>1.4.0.RELEASE</spring-boot.version>
-        <mongodb-driver.version>3.3.0</mongodb-driver.version>
-        <commons-io.version>2.4</commons-io.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.21</version>
+            <version>${slf4j.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>19.0</version>
+            <version>${guava.version}</version>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
+            <version>${junit.version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
+            <version>${lombok.version}</version>
         </dependency>
     </dependencies>
 
