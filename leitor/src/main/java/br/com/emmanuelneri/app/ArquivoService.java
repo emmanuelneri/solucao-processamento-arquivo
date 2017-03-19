@@ -26,8 +26,8 @@ public class ArquivoService {
     @Autowired
     private ArquivoSender arquivoSender;
 
-    public void importar() throws IOException {
-        final Collection<File> arquivos = FileUtils.getFilesInDirectory(new File(properties.getDiretorioNovo()));
+    public void importarArquivosXml() throws IOException {
+        final Collection<File> arquivos = FileUtils.getXmlFilesInDirectory(new File(properties.getDiretorioNovo()));
 
         if(!arquivos.isEmpty()) {
             processarArquivos(arquivos);
@@ -40,7 +40,7 @@ public class ArquivoService {
         for (File arquivo : arquivos) {
             try {
                 final String xml = Files.toString(arquivo, Charsets.UTF_8);
-                inserirArquivosNaBase(arquivo);
+                inserirArquivosNaBase(xml);
                 moverArquivoParaPastaBkp(arquivo);
                 enviarArquivoParaFilaDeProcessamento(xml);
             } catch (Exception ex) {
@@ -50,7 +50,7 @@ public class ArquivoService {
         }
     }
 
-    private void inserirArquivosNaBase(File arquivo) throws IOException {
+    private void inserirArquivosNaBase(String arquivo) throws IOException {
         final Document arquivoDocument = new Document("xml", arquivo);
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 

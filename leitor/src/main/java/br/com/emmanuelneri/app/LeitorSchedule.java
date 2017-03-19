@@ -17,7 +17,7 @@ public class LeitorSchedule {
     @Scheduled(fixedRate = 1000000)
     public void importar() throws IOException {
         log.info("----------- Iniciado Importador de Arquivos ----------");
-        arquivoService.importar();
+        arquivoService.importarArquivosXml();
         log.info("----------- Finalizando Importador de Arquivos ----------");
 
     }

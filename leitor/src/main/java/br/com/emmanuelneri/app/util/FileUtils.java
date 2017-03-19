@@ -10,7 +10,7 @@ public final class FileUtils {
 
     private FileUtils() {}
 
-    public static Collection<File> getFilesInDirectory(final File directory) throws IllegalArgumentException {
+    public static Collection<File> getXmlFilesInDirectory(final File directory) throws IllegalArgumentException {
         if (directory == null) {
             throw new IllegalArgumentException("directory is mandatory");
         }
