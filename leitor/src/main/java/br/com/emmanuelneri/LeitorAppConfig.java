@@ -1,6 +1,6 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.app.LeitorArquivoScheduled;
+import br.com.emmanuelneri.app.LeitorSchedule;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import javax.jms.Queue;
 
 @SpringBootApplication
 @EnableScheduling
-@ComponentScan(basePackageClasses = {LeitorArquivoScheduled.class, LeitorProperties.class})
+@ComponentScan(basePackageClasses = {LeitorSchedule.class, LeitorProperties.class})
 @EnableJms
 public class LeitorAppConfig {
 
