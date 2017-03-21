@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping(path = "/arquivos")
 public class ArquivoController {
 
     private static final String ATRIBUTO_XML = "xml";
@@ -24,7 +25,7 @@ public class ArquivoController {
     @Autowired
     private DisponibilizadorProperties properties;
 
-    @RequestMapping(path = "/arquivos", method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public List<String> findAll() {
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
@@ -37,17 +38,17 @@ public class ArquivoController {
         }
     }
 
-    @RequestMapping(path = "/arquivo/{objectId}", method = RequestMethod.GET)
-    public String findByProcessIdentifier(@PathVariable("objectId") String objectId) {
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    public String findByProcessIdentifier(@PathVariable("id") String id) {
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
             final MongoCollection<Document> collection = getDocumentMongoCollection(mongoClient);
 
-            return collection.find(new Document("_id", new ObjectId(objectId))).first().getString(ATRIBUTO_XML);
+            return collection.find(new Document("_id", new ObjectId(id))).first().getString(ATRIBUTO_XML);
         }
     }
 
-    @RequestMapping(path = "/arquivos/ids", method = RequestMethod.GET)
+    @RequestMapping(path = "/ids", method = RequestMethod.GET)
     public List<String> findIds() {
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
@@ -59,7 +60,7 @@ public class ArquivoController {
         }
     }
 
-    @RequestMapping(path = "/arquivos/objectIds", method = RequestMethod.GET)
+    @RequestMapping(path = "/objectIds", method = RequestMethod.GET)
     public List<ObjectId> findObjectIds() {
         try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
 
@@ -72,7 +73,7 @@ public class ArquivoController {
     }
 
     private MongoCollection<Document> getDocumentMongoCollection(MongoClient mongoClient) {
-        final MongoDatabase db = mongoClient.getDatabase("arquivo-processamento");
+        final MongoDatabase db = mongoClient.getDatabase(properties.getMongoDataBase());
         return db.getCollection("arquivos");
     }
 

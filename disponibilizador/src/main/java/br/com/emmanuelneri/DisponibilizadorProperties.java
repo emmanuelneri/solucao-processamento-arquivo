@@ -7,14 +7,16 @@ import org.springframework.stereotype.Component;
 
 @Component
 @PropertySource(value = "classpath:disponibilizador.properties")
+@Getter
 public class DisponibilizadorProperties {
 
-    @Getter
     @Value("${mongo.host}")
     private String mongoHost;
 
-    @Getter
     @Value("${mongo.port}")
     private int mongoPort;
+
+    @Value("${mongo.database}")
+    private String mongoDataBase;
 
 }
