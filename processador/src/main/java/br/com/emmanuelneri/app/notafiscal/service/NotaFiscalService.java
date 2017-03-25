@@ -37,7 +37,6 @@ public class NotaFiscalService {
     @Autowired
     private ArquivoSender arquivoSender;
 
-    @Transactional
     public void processar(String arquivoNotaFiscal) {
         try {
             final NfeProcXml xmlNotaFiscal = XmlRead.read(arquivoNotaFiscal);
@@ -52,7 +51,8 @@ public class NotaFiscalService {
         }
     }
 
-    private void salvar(NfeProcXml xml) {
+    @Transactional
+    public void salvar(NfeProcXml xml) {
         final NfeInfoXml info = xml.getInfo();
         final NfeIdentificacaoXml identificacao = info.getIdentificacao();
         final NfeICMSTotXml total = info.getIcmsTotXml();

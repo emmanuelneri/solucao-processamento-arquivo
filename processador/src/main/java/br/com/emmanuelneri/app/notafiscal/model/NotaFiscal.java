@@ -8,7 +8,6 @@ import lombok.Getter;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,6 +22,7 @@ import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,11 +58,6 @@ public class NotaFiscal {
     private Empresa destinatario;
 
     @NotNull
-    @Column(name = "DATA_UPLOAD")
-    @Getter
-    private LocalDate dataUpload = LocalDate.now();
-
-    @NotNull
     @Column(name = "DATA_EMISSAO")
     @Getter
     private LocalDate dataEmissao;
@@ -72,8 +67,7 @@ public class NotaFiscal {
     private LocalDate dataSaida;
 
     @NotNull
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
-    @JoinColumn(name = "NOTA_FISCAL_ID")
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "notaFiscal")
     private List<ItemNotaFiscal> itens = new ArrayList<>();
 
     @NotNull
@@ -88,6 +82,11 @@ public class NotaFiscal {
     @Column(name = "VALOR_TOTAL")
     @Getter
     private BigDecimal valorTotal;
+
+    @NotNull
+    @Column(name = "DATA_HORA_PROCESSAMENTO")
+    @Getter
+    private LocalDateTime dataProcessamento = LocalDateTime.now();
 
     protected NotaFiscal() {
     }
@@ -104,7 +103,7 @@ public class NotaFiscal {
     }
 
     public void addItem(NfeProdutoXml produtoXml, Produto produto) {
-        itens.add(new ItemNotaFiscal(produtoXml.getxPed(), produtoXml.getnItemPed(),
+        itens.add(new ItemNotaFiscal(this, produtoXml.getxPed(), produtoXml.getnItemPed(),
                 produtoXml.getqTrib(), produto, produtoXml.getvUnCom(), produtoXml.getvProd()));
     }
 }

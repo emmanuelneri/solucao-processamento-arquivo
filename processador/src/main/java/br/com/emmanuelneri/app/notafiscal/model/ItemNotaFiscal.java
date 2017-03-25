@@ -7,21 +7,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "ITEM_NOTA_FISCAL",
-        uniqueConstraints = @UniqueConstraint(columnNames = {"NUMERO_PEDIDO", "NUMERO_ITEM"}, name = "nfe_item_uk"))
+@Table(name = "ITEM_NOTA_FISCAL")
 @Getter
 public class ItemNotaFiscal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotNull
+    @ManyToOne
+    @JoinColumn(name = "NOTA_FISCAL_ID")
+    private NotaFiscal notaFiscal;
 
     @Column(name = "NUMERO_PEDIDO")
     private String numeroPedido;
@@ -47,7 +51,8 @@ public class ItemNotaFiscal {
     protected ItemNotaFiscal() {
     }
 
-    public ItemNotaFiscal(String numeroPedido, Integer numeroItem, BigDecimal quantidade, Produto produto, BigDecimal valorProduto, BigDecimal valorTotal) {
+    public ItemNotaFiscal(NotaFiscal notaFiscal, String numeroPedido, Integer numeroItem, BigDecimal quantidade, Produto produto, BigDecimal valorProduto, BigDecimal valorTotal) {
+        this.notaFiscal = notaFiscal;
         this.numeroPedido = numeroPedido;
         this.numeroItem = numeroItem;
         this.quantidade = quantidade;
