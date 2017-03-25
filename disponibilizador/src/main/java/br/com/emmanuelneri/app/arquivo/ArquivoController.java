@@ -1,4 +1,4 @@
-package br.com.emmanuelneri.app;
+package br.com.emmanuelneri.app.arquivo;
 
 import br.com.emmanuelneri.DisponibilizadorProperties;
 import com.mongodb.Block;
