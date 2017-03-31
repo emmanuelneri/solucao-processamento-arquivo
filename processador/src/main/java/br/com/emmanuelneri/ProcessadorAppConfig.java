@@ -12,20 +12,20 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jms.annotation.EnableJms;
-import br.com.emmanuelneri.app.ArquivoConsumer;
+import br.com.emmanuelneri.app.ArquivoNotaFiscalConsumer;
 import br.com.emmanuelneri.app.notafiscal.model.NotaFiscal;
 
 import javax.jms.Queue;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {ArquivoConsumer.class})
+@ComponentScan(basePackageClasses = {ArquivoNotaFiscalConsumer.class})
 @EntityScan(basePackageClasses = {NotaFiscal.class, Jsr310JpaConverters.class})
 @EnableJpaRepositories(basePackageClasses = {NotaFiscalRepository.class})
 @EnableJms
 public class ProcessadorAppConfig {
 
-    public static final String ARQUIVO_QUEUE = "arquivo.queue";
+    public static final String NOTA_FISCAL_ERRO_QUEUE = "nota.fiscal.erro.queue";
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(ProcessadorAppConfig.class, args);
@@ -33,6 +33,6 @@ public class ProcessadorAppConfig {
 
     @Bean
     public Queue queue() {
-        return new ActiveMQQueue(ARQUIVO_QUEUE);
+        return new ActiveMQQueue(NOTA_FISCAL_ERRO_QUEUE);
     }
 }

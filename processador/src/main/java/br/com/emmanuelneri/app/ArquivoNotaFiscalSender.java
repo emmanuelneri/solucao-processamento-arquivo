@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import javax.jms.Queue;
 
 @Component
-public class ArquivoSender {
+public class ArquivoNotaFiscalSender {
 
     @Autowired
     private JmsMessagingTemplate jmsMessagingTemplate;

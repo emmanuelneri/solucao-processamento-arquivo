@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import br.com.emmanuelneri.app.ArquivoSender;
+import br.com.emmanuelneri.app.ArquivoNotaFiscalSender;
 import br.com.emmanuelneri.app.exception.BusinessException;
 import br.com.emmanuelneri.app.exception.FileException;
 import br.com.emmanuelneri.app.notafiscal.model.Empresa;
@@ -35,7 +35,7 @@ public class NotaFiscalService {
     private ProdutoService produtoService;
 
     @Autowired
-    private ArquivoSender arquivoSender;
+    private ArquivoNotaFiscalSender arquivoSender;
 
     public void processar(String arquivoNotaFiscal) {
         try {
@@ -46,7 +46,7 @@ public class NotaFiscalService {
         } catch (BusinessException bex) {
             log.warn("Nota Fiscal já existente", bex);
         } catch (Exception ex) {
-            reenviarArquivoParaFila(arquivoNotaFiscal);
+            enviarNotaFiscalParaFilaDeErro(arquivoNotaFiscal);
             log.error("Erro processar notaFisca", ex);
         }
     }
@@ -84,8 +84,8 @@ public class NotaFiscalService {
         }
     }
 
-    private void reenviarArquivoParaFila(String arquivo) {
-        arquivoSender.send(arquivo);
+    private void enviarNotaFiscalParaFilaDeErro(String xml) {
+        arquivoSender.send(xml);
     }
 
 }

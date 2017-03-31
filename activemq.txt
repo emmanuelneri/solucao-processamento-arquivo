@@ -7,4 +7,5 @@ usuário padrão: admin
 senha padrão: admin
 
 // Criar Queues no ActiveMQ
-Queues name: arquivo.queue
+Queues name: nota.fiscal.queue
+Queues name: nota.fiscal.erro.queue

@@ -9,17 +9,17 @@ import org.springframework.stereotype.Component;
 import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
 
 @Component
-public class ArquivoConsumer {
+public class ArquivoNotaFiscalConsumer {
 
-    private Logger LOGGER = LoggerFactory.getLogger(ArquivoConsumer.class);
+    private Logger LOGGER = LoggerFactory.getLogger(ArquivoNotaFiscalConsumer.class);
 
     @Autowired
     private NotaFiscalService notaFiscalService;
 
-    @JmsListener(destination = ProcessadorAppConfig.ARQUIVO_QUEUE)
-    public void receive(String arquivo) {
+    @JmsListener(destination = ProcessadorAppConfig.NOTA_FISCAL_ERRO_QUEUE)
+    public void receive(String xml) {
         LOGGER.debug("Iniciando processamento arquivo");
-        notaFiscalService.processar(arquivo);
+        notaFiscalService.processar(xml);
         LOGGER.debug("Finalizando processamento arquivo");
     }
 
