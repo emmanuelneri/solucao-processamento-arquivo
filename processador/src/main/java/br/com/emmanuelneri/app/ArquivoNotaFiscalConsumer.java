@@ -16,7 +16,7 @@ public class ArquivoNotaFiscalConsumer {
     @Autowired
     private NotaFiscalService notaFiscalService;
 
-    @JmsListener(destination = ProcessadorAppConfig.NOTA_FISCAL_ERRO_QUEUE)
+    @JmsListener(destination = ProcessadorAppConfig.NOTA_FISCALQUEUE)
     public void receive(String xml) {
         LOGGER.debug("Iniciando processamento arquivo");
         notaFiscalService.processar(xml);

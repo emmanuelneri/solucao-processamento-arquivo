@@ -25,6 +25,7 @@ import javax.jms.Queue;
 @EnableJms
 public class ProcessadorAppConfig {
 
+    public static final String NOTA_FISCALQUEUE = "nota.fiscal.queue";
     public static final String NOTA_FISCAL_ERRO_QUEUE = "nota.fiscal.erro.queue";
 
     public static void main(String[] args) {
