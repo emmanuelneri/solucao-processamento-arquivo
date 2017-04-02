@@ -1,6 +1,6 @@
 package br.com.emmanuelneri.app.notafiscal.controller;
 
-import br.com.emmanuelneri.app.notafiscal.model.NotaFiscal;
+import br.com.emmanuelneri.app.notafiscal.dto.NotaFiscalDTO;
 import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,8 +18,8 @@ public class NotaFiscalController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/{cnpjEmitente}/{numeroNotaFiscal}")
     public ResponseEntity findByCnpjEmitenteENumeroNotaFiscal(@PathVariable("cnpjEmitente") String cnpjEmitente, @PathVariable("numeroNotaFiscal") String numeroNotaFiscal) {
-        final NotaFiscal notaFiscal = notaFiscalService.findByCnpjEmitenteENumeroNotaFiscal(cnpjEmitente, numeroNotaFiscal);
-        return notaFiscal != null ? ResponseEntity.ok(notaFiscal) : ResponseEntity.badRequest().body("Nota fiscal não encontrada");
+        final NotaFiscalDTO notaFiscalDTO = notaFiscalService.findByCnpjEmitenteENumeroNotaFiscal(cnpjEmitente, numeroNotaFiscal);
+        return notaFiscalDTO != null ? ResponseEntity.ok(notaFiscalDTO) : ResponseEntity.badRequest().body("Nota fiscal não encontrada");
     }
 
     @RequestMapping(method = RequestMethod.GET)
