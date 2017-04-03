@@ -10,15 +10,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class LeitorProperties {
 
-    @Value("${mongo.host}")
-    private String mongoHost;
-
-    @Value("${mongo.port}")
-    private int mongoPort;
-
-    @Value("${mongo.database}")
-    private String mongoDataBase;
-
     @Value("${diretorio.arquivo.novo}")
     private String diretorioNovo;
 

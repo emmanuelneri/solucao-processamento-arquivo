@@ -11,7 +11,7 @@ show dbs
 use arquivo-processamento
 
 // Criar Collection ("tabela") para armezar os arquivos
-db.createCollection("arquivos")
+db.createCollection("notaFiscalXml")
 
 // Consultar arquivos salvos
-db.arquivos.find()
+db.notaFiscalXml.find()

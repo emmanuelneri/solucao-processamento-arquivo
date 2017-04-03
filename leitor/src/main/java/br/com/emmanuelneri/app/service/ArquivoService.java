@@ -5,11 +5,7 @@ import br.com.emmanuelneri.app.component.ArquivoNotaFiscalSender;
 import br.com.emmanuelneri.app.util.FileUtils;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
-import com.mongodb.MongoClient;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import lombok.extern.slf4j.Slf4j;
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +23,9 @@ public class ArquivoService {
     @Autowired
     private ArquivoNotaFiscalSender arquivoNotaFiscalSender;
 
+    @Autowired
+    private NotaFiscalXmlService notaFiscalXmlService;
+
     public void importarArquivosXml() throws IOException {
         final Collection<File> arquivos = FileUtils.getXmlFilesInDirectory(new File(properties.getDiretorioNovo()));
 
@@ -41,9 +40,9 @@ public class ArquivoService {
         for (File arquivo : arquivos) {
             try {
                 final String xml = Files.toString(arquivo, Charsets.UTF_8);
-                inserirArquivosNaBase(xml);
-                moverArquivoParaPastaBkp(arquivo);
+                inserirArquivosNaBase(arquivo.getName(), xml);
                 enviarArquivoParaFilaDeProcessamento(xml);
+                moverArquivoParaPastaBkp(arquivo);
             } catch (Exception ex) {
                 moverArquivoParaPastaErro(arquivo);
                 log.error("Erro durante inserção do arquivo", ex);
@@ -51,15 +50,8 @@ public class ArquivoService {
         }
     }
 
-    private void inserirArquivosNaBase(String arquivo) throws IOException {
-        final Document arquivoDocument = new Document("xml", arquivo);
-        try (MongoClient mongoClient = new MongoClient(properties.getMongoHost(), properties.getMongoPort())) {
-
-            final MongoDatabase db = mongoClient.getDatabase(properties.getMongoDataBase());
-            final MongoCollection<Document> arquivosCollection = db.getCollection("arquivos");
-
-            arquivosCollection.insertOne(arquivoDocument);
-        }
+    private void inserirArquivosNaBase(String nomeArquivo, String xml) {
+        notaFiscalXmlService.salvar(nomeArquivo, xml);
     }
 
     private void moverArquivoParaPastaBkp(File file) throws IOException {
