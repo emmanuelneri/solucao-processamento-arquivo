@@ -1,6 +1,6 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.app.LeitorSchedule;
+import br.com.emmanuelneri.app.schedule.LeitorSchedule;
 import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

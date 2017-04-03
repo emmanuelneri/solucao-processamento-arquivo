@@ -1,5 +1,6 @@
-package br.com.emmanuelneri.app;
+package br.com.emmanuelneri.app.schedule;
 
+import br.com.emmanuelneri.app.service.ArquivoService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;

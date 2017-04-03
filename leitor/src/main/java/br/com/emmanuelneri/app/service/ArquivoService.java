@@ -1,6 +1,7 @@
-package br.com.emmanuelneri.app;
+package br.com.emmanuelneri.app.service;
 
 import br.com.emmanuelneri.LeitorProperties;
+import br.com.emmanuelneri.app.component.ArquivoNotaFiscalSender;
 import br.com.emmanuelneri.app.util.FileUtils;
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;
@@ -24,7 +25,7 @@ public class ArquivoService {
     private LeitorProperties properties;
 
     @Autowired
-    private ArquivoSender arquivoSender;
+    private ArquivoNotaFiscalSender arquivoNotaFiscalSender;
 
     public void importarArquivosXml() throws IOException {
         final Collection<File> arquivos = FileUtils.getXmlFilesInDirectory(new File(properties.getDiretorioNovo()));
@@ -70,7 +71,7 @@ public class ArquivoService {
     }
 
     private void enviarArquivoParaFilaDeProcessamento(String file) {
-        arquivoSender.send(file);
+        arquivoNotaFiscalSender.send(file);
     }
 
 }
