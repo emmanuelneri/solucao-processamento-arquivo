@@ -1,6 +1,6 @@
 package br.com.emmanuelneri;
 
-import br.com.emmanuelneri.app.arquivo.ArquivoController;
+import br.com.emmanuelneri.app.arquivo.controller.ArquivoNotaFiscalController;
 import br.com.emmanuelneri.app.notafiscal.controller.NotaFiscalController;
 import br.com.emmanuelneri.app.notafiscal.repository.NotaFiscalRepository;
 import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {ArquivoController.class, DisponibilizadorProperties.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
+@ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, DisponibilizadorProperties.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
 public class DisponibilizadorAppConfig {
 
     public static void main(String[] args) {
