@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
 import org.bson.Document;
 
-import java.util.Date;
-
 @Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public final class ArquivoDTO {
@@ -17,10 +15,10 @@ public final class ArquivoDTO {
 
     private String id;
     private String nomeArquivo;
-    private Date data;
+    private String data;
     private String conteudo;
 
-    private ArquivoDTO(String id, String nomeArquivo, Date data) {
+    private ArquivoDTO(String id, String nomeArquivo, String data) {
         this.id = id;
         this.nomeArquivo = nomeArquivo;
         this.data = data;
@@ -29,7 +27,7 @@ public final class ArquivoDTO {
     public static ArquivoDTO criar(Document document) {
         return new ArquivoDTO(document.getObjectId(ARQUIVO_ID).toHexString(),
                 document.getString(ARQUIVO_NOME),
-                document.getDate(ARQUIVO_DATA));
+                document.getString(ARQUIVO_DATA));
     }
 
     public static ArquivoDTO criarComConteudo(Document document) {
