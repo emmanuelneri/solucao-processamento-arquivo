@@ -18,7 +18,7 @@ import javax.jms.Queue;
 @EnableJms
 public class LeitorAppConfig {
 
-    public static final String ARQUIVO_QUEUE = "arquivo.queue";
+    public static final String ARQUIVO_QUEUE = "nota.fiscal.queue";
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(LeitorAppConfig.class, args);

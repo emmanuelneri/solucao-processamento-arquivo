@@ -11,17 +11,15 @@ import java.time.format.DateTimeFormatter;
 @Getter
 public class NotaFiscalXml {
 
-    private static final DateTimeFormatter DATE_TIME_FORMAT = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-
     @Id
-    public String id;
-    public String data;
+    private String id;
+    private String data;
     private String nomeArquivo;
     private String conteudo;
 
     public NotaFiscalXml(String nomeArquivo, String conteudo) {
         this.nomeArquivo = nomeArquivo;
         this.conteudo = conteudo;
-        this.data = DATE_TIME_FORMAT.format(LocalDateTime.now());
+        this.data = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm"));
     }
 }

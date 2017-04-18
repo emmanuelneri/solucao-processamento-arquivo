@@ -6,12 +6,13 @@ import org.bson.Document;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static br.com.emmanuelneri.app.notafiscal.dto.ArquivoDTO.*;
+import static br.com.emmanuelneri.app.notafiscal.dto.ArquivoDTO.ARQUIVO_ID;
+import static br.com.emmanuelneri.app.notafiscal.dto.ArquivoDTO.criar;
+import static br.com.emmanuelneri.app.notafiscal.dto.ArquivoDTO.criarComConteudo;
 
 @Service
 public class NotaFiscalArquivoService {
@@ -25,7 +26,7 @@ public class NotaFiscalArquivoService {
         return arquivoDTOS;
     }
 
-    public ArquivoDTO findById(@PathVariable("id") String id) {
+    public ArquivoDTO findById(String id) {
         final Document document = mongoDBRepository.findFirst(new Document(ARQUIVO_ID, new ObjectId(id)));
         return criarComConteudo(document);
     }
