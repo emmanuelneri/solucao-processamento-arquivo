@@ -1,41 +1,68 @@
-#Solução de micro serviços para processamento de arquivos
+# Solução de micro serviços para processamento de arquivos
 
-![alt tag](https://github.com/emmanuelneri/solucao-processamento-arquivo/blob/master/microservices-processamento-arquivo.png)
+Este projeto é uma POC originada de um estudo que visa escalar soluções de processamento de arquivos em termos de sistemas e não apenas de infraestrutura, com isso, foi utilizados conceitos de decomposição de software proposto pelas arquiteturas de micro serviços para atingir uma estrutura de software flexível como demonstrado na imagem a seguir. 
 
-#Tecnologias
+![alt tag](https://github.com/emmanuelneri/solucao-processamento-arquivo/blob/master/arquivo/microservices-processamento-arquivo.png)
+
+# Tecnologias
 - Java 8
 - Spring Boot 1.5.2
+    - spring-boot-starter
+    - spring-boot-starter-activemq
+    - spring-boot-starter-data-mongodb
+    - spring-boot-starter-data-jpa
+    - spring-boot-starter-validation
+    - spring-boot-starter-web
+    - spring-boot-starter-jdbc
+- Tomcat (Embedded no Spring Boot)
 - MongoDB 3.3.0
 - Postgres 9.4
 - ActiveMQ 5.12.0
 
-#Configuração do Ambiente
-- Criar base collection no MongoDB
-  - db.createCollection("notaFiscalXml")
-- Criar Queue no ActiveMQ
- - Acesso visual ao admin do ActiveMQ: http://localhost:8161/admin/queues.jsp
- - Criar Queues com os nomes "nota.fiscal.queuee" e "nota.fiscal.erro.queue"
-- Criar base no Postgres
-  - create database processamento-arquivo
-- Configurar pasta para leitura dos arquivos
-  - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties 
-  
-#Execução
+# Configuração de ambiente
 
-Infraestrutura:
- - iniciar Postgres
-   - localhost:5432
- - iniciar MongoDB
-   - localhost:27017
- - iniciar ActiveMQ
-   - tcp://localhost:61616
+- Pasta de leitura dos arquivos
+  -  Criar pasta para leitura dos arquivos
+    - /Users/emmanuelneri/Documents/arquivos**/novos/**
+    - /Users/emmanuelneri/Documents/arquivos**/bkp/**
+    - /Users/emmanuelneri/Documents/arquivos**/erros/**
+  -  Configurar pasta para leitura dos arquivos
+    - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties
+- Armazenamentos dos arquivos xmls
+  - Inicializar MongoDB
+    - ```./mongod```
+    - Disponível no endereço: localhost:27017
+  - Criar base collection no MongoDB
+    - ```db.createCollection("notaFiscalXml")```
+- Fila de processamento
+  - Inicializar ActiveMQ
+    - ```sh /activemq console```
+  - Criar fila(Queue) 
+    - Acesso visual ao admin do ActiveMQ: http://localhost:8161/admin/queues.jsp
+    - Criar duas filas
+      - nota.fiscal.queuee
+      - nota.fiscal.erro.queue
+- Armazenamentos das notas fiscais processadas
+   - Inicializar Postgres
+      - ```server.log start```
+   - Criar schema
+      - create database processamento-arquivo
+      
+# Execução
 
-Aplicação: 
- - leitor: mvn spring-boot:run
- - processador: mvn spring-boot:run
- - disponibilizador: mvn spring-boot:run
+A execução das aplicações são feitas através do de um comando Maven que envoca a inicialização do Spring Boot.
+
+- leitor
+    -  cd /solucao-processamento-arquivo/leitor
+    - ```mvn spring-boot:run```
+ - processador
+    -  cd /solucao-processamento-arquivo/processador
+    - ```mvn spring-boot:run```
+ - disponibilizador
+    -  cd /solucao-processamento-arquivo/disponibilizador
+    - ```mvn spring-boot:run```
  
- #Utilização
+ # Utilização
  
 - leitor: Apenas é executado em background, lendo as notas do diretório configurado e enviando para fila e amazenando no MongoDB.
 - processador: Apenas é executado em background, recebendo arquivos da fila, processando-os e persistindo no Postgres. 
