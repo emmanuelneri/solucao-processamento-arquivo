@@ -28,7 +28,7 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
          - /Users/emmanuelneri/Documents/arquivos/bkp/
          - /Users/emmanuelneri/Documents/arquivos/erros/
   -  Configurar pasta para leitura dos arquivos
-    - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties
+        - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties
 - Armazenamentos dos arquivos xmls
   - Inicializar MongoDB
     - ```./mongod```
