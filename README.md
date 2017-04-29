@@ -23,9 +23,9 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
 
 - Pasta de leitura dos arquivos
   -  Criar pasta para leitura dos arquivos
-     - Crias as pastas **novos**, **bkp**, **erros**
+     - Crias as pastas **novos**, **bkp** e **erros**, exemplo:
          - /Users/emmanuelneri/Documents/arquivos/novos/
-        - /Users/emmanuelneri/Documents/arquivos/bkp/
+         - /Users/emmanuelneri/Documents/arquivos/bkp/
          - /Users/emmanuelneri/Documents/arquivos/erros/
   -  Configurar pasta para leitura dos arquivos
     - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties
@@ -38,6 +38,7 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
 - Fila de processamento
   - Inicializar ActiveMQ
     - ```sh /activemq console```
+    - Disponível no endereço: localhost:61616
   - Criar fila(Queue) 
     - Acesso visual ao admin do ActiveMQ: http://localhost:8161/admin/queues.jsp
     - Criar duas filas
@@ -46,6 +47,7 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
 - Armazenamentos das notas fiscais processadas
    - Inicializar Postgres
       - ```server.log start```
+      - Disponível no endereço: localhost:5432
    - Criar schema
       - create database processamento-arquivo
       
