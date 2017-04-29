@@ -33,8 +33,9 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
   - Inicializar MongoDB
     - ```./mongod```
     - Disponível no endereço: localhost:27017
-  - Criar base collection no MongoDB
+  - Criar collection no MongoDB
     - ```db.createCollection("notaFiscalXml")```
+    - A estrutura da collection NotaFiscalXml será criada pela aplicação leitor
 - Fila de processamento
   - Inicializar ActiveMQ
     - ```sh /activemq console```
@@ -50,6 +51,8 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
       - Disponível no endereço: localhost:5432
    - Criar schema
       - create database processamento-arquivo
+    - Tabelas
+      - As tabelas serão criadas quando executar a aplicação processador
       
 # Execução
 
