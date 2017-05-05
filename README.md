@@ -1,4 +1,4 @@
-Link apresentação no TDC 2017 - Florinópolis: https://www.slideshare.net/emmanuelnerisouza/criando-uma-arquitetura-escalavel-para-processamento-de-arquivos-com-micro-servicos-e-spring-boot
+Link apresentação no TDC 2017 - Florianópolis: https://www.slideshare.net/emmanuelnerisouza/criando-uma-arquitetura-escalavel-para-processamento-de-arquivos-com-micro-servicos-e-spring-boot
 
 # Solução de micro serviços para processamento de arquivos
 
