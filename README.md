@@ -1,3 +1,5 @@
+Link apresentação no TDC 2017 - Florianópolis: https://www.slideshare.net/emmanuelnerisouza/criando-uma-arquitetura-escalavel-para-processamento-de-arquivos-com-micro-servicos-e-spring-boot
+
 # Solução de micro serviços para processamento de arquivos
 
 Este projeto é uma POC originada de um estudo que visa escalar soluções de processamento de arquivos em termos de sistemas e não apenas de infraestrutura, com isso, foi utilizados conceitos de decomposição de software proposto pelas arquiteturas de micro serviços para atingir uma estrutura de software flexível como demonstrado na imagem a seguir. 
