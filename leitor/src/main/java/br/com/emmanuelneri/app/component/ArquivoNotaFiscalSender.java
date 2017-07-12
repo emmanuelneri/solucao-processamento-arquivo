@@ -15,7 +15,7 @@ public class ArquivoNotaFiscalSender {
     @Autowired
     private Queue queue;
 
-    public void send(String message) {
+    public void send(Object message) {
         this.jmsMessagingTemplate.convertAndSend(this.queue, message);
     }
 }

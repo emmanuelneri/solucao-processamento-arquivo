@@ -11,6 +11,7 @@
 
     <properties>
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
+        <spring-integration.version>4.3.9.RELEASE</spring-integration.version>
         <mongodb-driver.version>3.4.2</mongodb-driver.version>
         <postgresql.version>9.4.1212</postgresql.version>
         <flyway.version>4.1.2</flyway.version>

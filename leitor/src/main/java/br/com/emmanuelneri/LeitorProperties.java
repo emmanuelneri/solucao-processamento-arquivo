@@ -10,12 +10,6 @@ import org.springframework.stereotype.Component;
 @Getter
 public class LeitorProperties {
 
-    @Value("${diretorio.arquivo.novo}")
-    private String diretorioNovo;
-
-    @Value("${diretorio.arquivo.bkp}")
-    private String diretorioBkp;
-
-    @Value("${diretorio.arquivo.erro}")
-    private String diretorioErro;
+    @Value("${diretorio.arquivo}")
+    private String diretorio;
 }
