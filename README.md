@@ -16,6 +16,7 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
     - spring-boot-starter-validation
     - spring-boot-starter-web
     - spring-boot-starter-jdbc
+- Spring Integration 4.3.9.RELEASE    
 - Tomcat (Embedded no Spring Boot)
 - MongoDB 3.3.0
 - Postgres 9.4
@@ -25,28 +26,27 @@ Este projeto é uma POC originada de um estudo que visa escalar soluções de pr
 
 - Pasta de leitura dos arquivos
   -  Criar pasta para leitura dos arquivos
-     - Crias as pastas **novos**, **bkp** e **erros**, exemplo:
-         - /Users/emmanuelneri/Documents/arquivos/novos/
-         - /Users/emmanuelneri/Documents/arquivos/bkp/
-         - /Users/emmanuelneri/Documents/arquivos/erros/
+     - /Users/emmanuelneri/Documents/arquivos/
   -  Configurar pasta para leitura dos arquivos
         - Configurar o properties solucao-processamento-arquivo/leitor/src/main/resources/leitor.properties
 - Armazenamentos dos arquivos xmls
   - Inicializar MongoDB
     - ```./mongod```
     - Disponível no endereço: localhost:27017
-  - Criar collection no MongoDB
+  - Criar collection no MongoDB (não obrigatório)
     - ```db.createCollection("notaFiscalXml")```
     - A estrutura da collection NotaFiscalXml será criada pela aplicação leitor
+    - Obs: Caso não criado a collection, a aplicação irá criar
 - Fila de processamento
   - Inicializar ActiveMQ
     - ```sh /activemq console```
     - Disponível no endereço: localhost:61616
-  - Criar fila(Queue) 
+  - Criar fila(Queue) (não obrigatório)
     - Acesso visual ao admin do ActiveMQ: http://localhost:8161/admin/queues.jsp
     - Criar duas filas
       - nota.fiscal.queuee
       - nota.fiscal.erro.queue
+    - Obs: Caso não criado a fila, a aplicação irá criar
 - Armazenamentos das notas fiscais processadas
    - Inicializar Postgres
       - ```server.log start```
