@@ -7,15 +7,17 @@ import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, DisponibilizadorProperties.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
+@EnableEurekaClient
 public class DisponibilizadorAppConfig {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(DisponibilizadorAppConfig.class, args);
+        SpringApplication.run(DisponibilizadorAppConfig.class, args);
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -23,13 +24,14 @@ import javax.jms.Queue;
 @EntityScan(basePackageClasses = {NotaFiscal.class, Jsr310JpaConverters.class})
 @EnableJpaRepositories(basePackageClasses = {NotaFiscalRepository.class})
 @EnableJms
+@EnableEurekaClient
 public class ProcessadorAppConfig {
 
     public static final String NOTA_FISCALQUEUE = "nota.fiscal.queue";
     public static final String NOTA_FISCAL_ERRO_QUEUE = "nota.fiscal.erro.queue";
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(ProcessadorAppConfig.class, args);
+        SpringApplication.run(ProcessadorAppConfig.class, args);
     }
 
     @Bean
