@@ -2,21 +2,21 @@ package br.com.emmanuelneri;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource(value = "classpath:disponibilizador.properties")
+@ConfigurationProperties
 @Getter
-public class DisponibilizadorProperties {
+public class MongoDBPropertiesConfig {
 
     @Value("${mongo.host}")
-    private String mongoHost;
+    private String host;
 
     @Value("${mongo.port}")
-    private int mongoPort;
+    private int port;
 
     @Value("${mongo.database}")
-    private String mongoDataBase;
+    private String dataBase;
 
 }

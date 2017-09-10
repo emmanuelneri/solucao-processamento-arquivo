@@ -15,13 +15,12 @@ import javax.jms.Queue;
 import java.io.File;
 
 @SpringBootApplication
-@EnableIntegration
 public class LeitorAppConfig {
 
     private static final String ARQUIVO_QUEUE = "nota.fiscal.queue";
 
     @Autowired
-    private LeitorProperties leitorProperties;
+    private ArquivosPropertiesConfig leitorProperties;
 
     public static void main(String[] args) {
         SpringApplication.run(LeitorAppConfig.class, args);

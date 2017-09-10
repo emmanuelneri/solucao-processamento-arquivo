@@ -5,17 +5,15 @@ import br.com.emmanuelneri.app.notafiscal.controller.NotaFiscalController;
 import br.com.emmanuelneri.app.notafiscal.repository.NotaFiscalRepository;
 import br.com.emmanuelneri.app.notafiscal.service.NotaFiscalService;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, DisponibilizadorProperties.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
+@SpringBootApplication(exclude = MongoAutoConfiguration.class)
+@ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, MongoDBPropertiesConfig.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
 public class DisponibilizadorAppConfig {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(DisponibilizadorAppConfig.class, args);
+        SpringApplication.run(DisponibilizadorAppConfig.class, args);
     }
 }

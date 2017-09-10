@@ -79,6 +79,37 @@ A execução das aplicações são feitas através do de um comando Maven que en
     - http://localhost:8080/nota-fiscal/{cnpjEmitente}/{numeroNotaFiscal}
     - http://localhost:8080/arquivos
     - http://localhost:8080/arquivos/{id}
+    
+# Configuração de ambiente com Docker
 
+1 - Execute o build das aplicações e as construções dsa imagens nos 3 projetos
 
+- leitor
+    -  cd /solucao-processamento-arquivo/leitor
+    - ```mvn clean package dockerfile:build```
+- processador
+    -  cd /solucao-processamento-arquivo/processador
+    - ```mvn clean package dockerfile:build```
+- disponibilizador
+    -  cd /solucao-processamento-arquivo/disponibilizador
+    - ```mvn clean package dockerfile:build```
+    
+2 - Execute o Docker compose para inicializar o ambiente
+  
+ -  cd /solucao-processamento-arquivo
+ - ```docker-compose up```
  
+Pronto! Todo ambiente será criando através de containers Dockers:
+
+```docker ps```
+
+| CONTAINER ID | IMAGE                                      |   COMMAND                |  PORTS                                           |   NAMES                                            |
+| ------------ | ------------------------------------------ | ------------------------ | ------------------------------------------------ | -------------------------------------------------- |
+| 2a1871b1a2da | processamento-arquivo/disponibilizador-app |   "sh -c 'java -Djav..." | 0.0.0.0:8080->8080/tcp                           | solucaoprocessamentoarquivo_disponibilizador-app_1 |
+| 0f7c14c12a5a | processamento-arquivo/processador-app      |   "sh -c 'java -Djav..." |                                                  | solucaoprocessamentoarquivo_processador-app_1      |
+| ce9666f82895 | processamento-arquivo/leitor-app           |   "sh -c 'java -Djav..." |                                                  | solucaoprocessamentoarquivo_leitor-app_1           |
+| d5f1b181c2c7 | mongo:3.5                                  |   "docker-entrypoint..." | 0.0.0.0:27017->27017/tcp                         | solucaoprocessamentoarquivo_file-db_1              |
+| ede31b44344e | postgres:9.6                               |   "docker-entrypoint..." | 0.0.0.0:5432->5432/tcp                           | solucaoprocessamentoarquivo_nota-fiscal-db_1       |
+| e5064a06626a | rmohr/activemq:5.12.0                      |   "/bin/bash -c 'bin..." | 0.0.0.0:8161->8161/tcp, 0.0.0.0:61616->61616/tcp | solucaoprocessamentoarquivo_queue_1                |
+ 
+Observação: Os arquivos para serem processados podem ser copiados para o container do Leitor com o seguinte comando ```docker cp nf.xml solucaoprocessamentoarquivo_leitor-app_1:/tmp/arquivos/nf.xml```

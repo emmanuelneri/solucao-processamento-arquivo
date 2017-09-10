@@ -1,0 +1,41 @@
+version: '3'
+services:
+ leitor-app:
+    image: processamento-arquivo/leitor-app
+    links:
+      - queue
+      - file-db
+
+ processador-app:
+    image: processamento-arquivo/processador-app
+    links:
+      - queue
+      - nota-fiscal-db
+
+ disponibilizador-app:
+    image: processamento-arquivo/disponibilizador-app
+    ports:
+      - "8080:8080"
+    links:
+      - file-db
+      - nota-fiscal-db
+
+ nota-fiscal-db:
+    image: postgres:9.6
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=processamento-arquivo
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+
+ file-db:
+     image: mongo:3.5
+     ports:
+       - "27017:27017"
+
+ queue:
+    image: rmohr/activemq:5.12.0
+    ports:
+       - "61616:61616"
+       - "8161:8161"
