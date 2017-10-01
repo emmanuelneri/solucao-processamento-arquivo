@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -18,7 +19,7 @@ import br.com.emmanuelneri.app.notafiscal.model.NotaFiscal;
 import javax.jms.Queue;
 
 @SpringBootApplication
-@EnableAutoConfiguration
+@EnableDiscoveryClient
 @ComponentScan(basePackageClasses = {ArquivoNotaFiscalConsumer.class})
 @EntityScan(basePackageClasses = {NotaFiscal.class, Jsr310JpaConverters.class})
 @EnableJpaRepositories(basePackageClasses = {NotaFiscalRepository.class})
@@ -29,7 +30,7 @@ public class ProcessadorAppConfig {
     public static final String NOTA_FISCAL_ERRO_QUEUE = "nota.fiscal.erro.queue";
 
     public static void main(String[] args) {
-        ApplicationContext ctx = SpringApplication.run(ProcessadorAppConfig.class, args);
+        SpringApplication.run(ProcessadorAppConfig.class, args);
     }
 
     @Bean

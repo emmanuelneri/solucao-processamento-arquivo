@@ -12,6 +12,7 @@
     <properties>
         <spring-boot.version>1.5.2.RELEASE</spring-boot.version>
         <spring-integration.version>4.3.9.RELEASE</spring-integration.version>
+        <spring-cloud-netflix.version>1.3.4.RELEASE</spring-cloud-netflix.version>
         <mongodb-driver.version>3.4.2</mongodb-driver.version>
         <postgresql.version>9.4.1212</postgresql.version>
         <flyway.version>4.1.2</flyway.version>
@@ -28,6 +29,20 @@
     </properties>
 
     <dependencies>
+        <dependency>
+           <groupId>org.springframework.cloud</groupId>
+           <artifactId>spring-cloud-starter-eureka</artifactId>
+            <version>${spring-cloud-netflix.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency> <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+            <version>${spring-boot.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -63,12 +78,19 @@
                 </configuration>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 
     <modules>
         <module>leitor</module>
         <module>disponibilizador</module>
         <module>processador</module>
+        <module>discovery</module>
     </modules>
 
 </project>
