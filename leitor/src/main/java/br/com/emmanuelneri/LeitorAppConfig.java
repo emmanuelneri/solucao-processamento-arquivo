@@ -18,7 +18,6 @@ import java.io.File;
 @SpringBootApplication
 @EnableIntegration
 @EnableDiscoveryClient
-@EnableDiscoveryClient
 public class LeitorAppConfig {
 
     private static final String ARQUIVO_QUEUE = "nota.fiscal.queue";
