@@ -13,9 +13,6 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication(exclude = MongoAutoConfiguration.class)
 @ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, MongoDBPropertiesConfig.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
-@SpringBootApplication
-@EnableAutoConfiguration
-@ComponentScan(basePackageClasses = {ArquivoNotaFiscalController.class, DisponibilizadorProperties.class, NotaFiscalRepository.class, NotaFiscalService.class, NotaFiscalController.class})
 @EnableEurekaClient
 public class DisponibilizadorAppConfig {
 
