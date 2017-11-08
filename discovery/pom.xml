@@ -2,48 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <artifactId>solucao-processamento-arquivo</artifactId>
         <groupId>br.com.emmanuelneri</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>leitor</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>discovery</artifactId>
     <packaging>jar</packaging>
+
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-activemq</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-integration</artifactId>
-            <version>${spring-boot.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-file</artifactId>
-            <version>${spring-integration.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
+            <artifactId>spring-cloud-netflix-eureka-server</artifactId>
+            <version>${spring-cloud-netflix.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${commons-io.version}</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
         </dependency>
     </dependencies>
 
@@ -65,7 +44,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${docker.version}</version>
                 <configuration>
-                    <repository>${docker.repository}/${project.artifactId}-app</repository>
+                    <repository>${docker.repository}/${project.artifactId}</repository>
                 </configuration>
             </plugin>
         </plugins>
