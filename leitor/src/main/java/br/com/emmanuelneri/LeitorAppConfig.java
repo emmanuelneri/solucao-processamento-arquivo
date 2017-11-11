@@ -4,7 +4,6 @@ import org.apache.activemq.command.ActiveMQQueue;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.integration.config.EnableIntegration;
 import org.springframework.integration.dsl.IntegrationFlow;
@@ -17,7 +16,6 @@ import java.io.File;
 
 @SpringBootApplication
 @EnableIntegration
-@EnableDiscoveryClient
 public class LeitorAppConfig {
 
     private static final String ARQUIVO_QUEUE = "nota.fiscal.queue";

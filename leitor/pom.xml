@@ -35,10 +35,6 @@
             <artifactId>spring-integration-file</artifactId>
             <version>${spring-integration.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-eureka</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>commons-io</groupId>

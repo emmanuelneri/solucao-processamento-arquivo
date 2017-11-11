@@ -5,14 +5,12 @@ services:
     links:
       - queue
       - file-db
-      - service-discovery
 
  processador-app:
     image: processamento-arquivo/processador-app
     links:
       - queue
       - nota-fiscal-db
-      - service-discovery
 
  disponibilizador-app:
     image: processamento-arquivo/disponibilizador-app
@@ -21,7 +19,6 @@ services:
     links:
       - file-db
       - nota-fiscal-db
-      - service-discovery
 
  nota-fiscal-db:
     image: postgres:9.6
@@ -42,8 +39,3 @@ services:
     ports:
        - "61616:61616"
        - "8161:8161"
-
- service-discovery:
-    image: processamento-arquivo/discovery
-    ports:
-       - "8761:8761"
