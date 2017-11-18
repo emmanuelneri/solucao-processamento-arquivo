@@ -15,7 +15,7 @@ services:
  disponibilizador-app:
     image: processamento-arquivo/disponibilizador-app
     ports:
-      - "8090:8090"
+      - "8080:8080"
     links:
       - file-db
       - nota-fiscal-db
